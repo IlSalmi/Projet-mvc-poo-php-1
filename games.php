@@ -1,13 +1,22 @@
 <?php 
 ob_start(); 
 require_once "Game.php";
+require_once "GameManager.php";
+$gameManager = new GameManager();
 
 $game1 = new Game(1,"Leagues of Legend",10);
 $game2 = new Game(2,"Among US",15);
 $game3 = new Game(3,"Starcraft 2",8);
 $game4 = new Game(4,"Battlefield 2042",128);
+$game5 = new Game(4,"Escape from Tarkov",14);
 
-$games= [$game1,$game2,$game3,$game4];
+$gameManager->addGame($game1);
+$gameManager->addGame($game2);
+$gameManager->addGame($game3);
+$gameManager->addGame($game4);
+$gameManager->addGame($game5);
+
+$games= $gameManager->getGames();
 
 ?>
 
@@ -29,7 +38,7 @@ $games= [$game1,$game2,$game3,$game4];
             <td><a href=""><i class="fa-solid fa-trash"></i></a></td>
         </tr>
     <?php endforeach; ?>
-    
+
     </tbody>
 </table>
 
