@@ -48,3 +48,11 @@ class Game {
         return $this;
     }
 }
+
+$allGames = [];
+$eldenRing = new Game (0,"Elden ring",4);
+$lol = new Game (1,"League of",10);
+$starCraft = new Game (2,"StarCraft",8);
+$allGames = [
+    $eldenRing,$lol,$starCraft
+];
