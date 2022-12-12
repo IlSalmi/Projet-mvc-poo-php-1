@@ -1,5 +1,11 @@
 <?php 
 require "Game.php";
+require "GameManager.php";
+
+$gameManager = new GameManager();
+$gameManager->loadGames(); 
+$games = $gameManager->getGames();
+
 ob_start(); ?>
 
 
@@ -12,14 +18,15 @@ ob_start(); ?>
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($allGames as $game) : ?>
-<tr class="table">
-<td><?= $game->getTitle()?></th>
-      <td><?=$game->getNbPlayers()?></td>
+    <?php foreach ($games as $game) : ?>
+      <tr class="table">
+      <td><?= $game->getTitle() ?></th>
+      <td><?= $game->getNbPlayers() ?></td>
       <td><i class="fa-solid fa-pen-to-square"></i></td>
       <td><i class="fa-solid fa-trash text-danger"></i></td>
     </tr>
     <?php endforeach;?>
+    
   </tbody>
 </table>
 
@@ -30,5 +37,6 @@ ob_start(); ?>
 <?php
 $content = ob_get_clean();
 $title="Liste de jeux";
+
 require_once "base.html.php";
 ?>

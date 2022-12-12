@@ -33,7 +33,7 @@
                             <a class="nav-link active" href="index.php">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Jeux</a>
+                            <a class="nav-link" href="games.php">Jeux</a>
                         </li>
                     </ul>
 
