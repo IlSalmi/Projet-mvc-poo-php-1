@@ -6,6 +6,7 @@ abstract class Manager{
 
     private function setBdd(){
         $this->pdo = new PDO("mysql:host=localhost;dbname=games_x;charset=utf8", "root", "");
+        $this->pdo = new PDO("mysql:host=localhost;dbname=game_x;charset=utf8","root","");
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
     }
 
