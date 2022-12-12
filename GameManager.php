@@ -15,24 +15,16 @@ class GameManager extends Manager {
     }
 
     public function loadGames(){
-        $bdd = $this->getBdd(); // normalement j'ai récup la bdd
-        // var_dump($bdd); la on est BIEN ! 
-
-        $req = $bdd->prepare("SELECT * FROM games"); // normalement la req
-
-        $req->execute(); // on shoot ! 
-
+        $bdd = $this->getBdd(); 
+        $req = $bdd->prepare("SELECT * FROM games");
+        $req->execute(); 
         $myGames = $req->fetchAll(PDO::FETCH_ASSOC);
-
         $req->closeCursor();
-
-        var_dump($myGames); // pour test
 
         foreach($myGames as $game){
             $g = new Game($game["id"],$game["title"],$game["nb_players"]);
             $this->addGame($g);
         }
-
 
     }
 
